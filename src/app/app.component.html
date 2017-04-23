@@ -1,28 +1,37 @@
-<header>
-    <div class="container">
-        <h1>{{title}}</h1>
-        <navbar></navbar>
-    </div>
-</header>
-<main>
-    <router-outlet></router-outlet>
+<div fxLayout="column" fxFlex>
 
-    <table>
-        <thead>
-            <th>Key</th>
-            <th>Hero</th>
-            <th>Description</th>
-            <th>Top Rated</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let model of models$ | async">
-                <td>{{model?.id}} </td>
-                <td>{{model?.name}} </td>
-                <td>{{model?.description}} </td>
-                <td><span *ngIf="model.topRated" class="new badge" data-badge-caption="Top Rated">Top Rated</span></td>    
-            </tr>
-        </tbody>
-    </table>
-    <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
-</main>
-<footer></footer>
+    <md-toolbar color="primary">
+        <span>Angular Material</span>
+    </md-toolbar>
+
+    <md-sidenav-container fxFlex>
+
+        <md-sidenav mode="side" opened="true">
+
+            <md-tab-group>
+                <md-tab label="Heroes">
+                    <md-nav-list>
+                        <md-list-item *ngFor="let model of models$ | async">
+                            <span>{{model.name}}</span>
+                        </md-list-item>
+                    </md-nav-list>
+                </md-tab>
+                <md-tab label="Top Rated">
+                    <md-nav-list>
+                        <md-list-item *ngFor="let model of trModels$ | async">
+                            <span>{{model.name}}</span>
+                        </md-list-item>
+                    </md-nav-list>
+                </md-tab>
+            </md-tab-group>
+        </md-sidenav>
+
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+
+    </md-sidenav-container>
+
+</div>
+
+<ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>

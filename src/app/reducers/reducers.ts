@@ -13,3 +13,8 @@ export function reducers() {
         loading: fromLoading.loader,
     };
 };
+
+
+export function topRatedHeros(state: State) {
+    return state.heroes.models.filter(hero => hero.topRated);
+}

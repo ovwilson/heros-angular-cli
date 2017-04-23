@@ -1,3 +1,20 @@
-<p>
-  home works!
-</p>
+<h2>
+  Add Hero</h2>
+
+<form #heroForm="ngForm">
+
+  <md-input-container class="example-full-width">
+    <input id="name" name="name" [(ngModel)]="model.name" #name="ngModel" mdInput placeholder="Name" required>
+    <md-error>You must enter a name for the hero.</md-error>
+  </md-input-container>
+
+  <md-input-container class="example-full-width" >
+    <textarea id="description" name="description" rows="6" [(ngModel)]="model.description" #description="ngModel" mdInput placeholder="Description"
+      required></textarea>
+    <md-error>You must enter a description for the hero.</md-error>
+  </md-input-container>
+
+  <md-checkbox id="topRated" name="topRated" #topRated="ngModel" [(ngModel)]="model.topRated">Top Rated</md-checkbox>
+
+
+</form>

@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -20,7 +23,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 export function useDock() {
   return {
     monitor: useLogMonitor({
-      visible: true,
+      visible: false,
       position: 'right'
     })
   };
@@ -37,6 +40,7 @@ export function useDock() {
     HttpModule,
     RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules }),
     MaterialModule.forRoot(),
+    FlexLayoutModule,
     BrowserAnimationsModule,
     StoreModule.provideStore(reducers()),
     StoreDevtoolsModule.instrumentStore(useDock),
