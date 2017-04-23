@@ -6,7 +6,23 @@
 </header>
 <main>
     <router-outlet></router-outlet>
+
+    <table>
+        <thead>
+            <th>Key</th>
+            <th>Hero</th>
+            <th>Description</th>
+            <th>Top Rated</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let model of models$ | async">
+                <td>{{model?.id}} </td>
+                <td>{{model?.name}} </td>
+                <td>{{model?.description}} </td>
+                <td><span *ngIf="model.topRated" class="new badge" data-badge-caption="Top Rated">Top Rated</span></td>    
+            </tr>
+        </tbody>
+    </table>
     <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
 </main>
 <footer></footer>
-

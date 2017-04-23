@@ -3,6 +3,7 @@ import { Store, Action } from '@ngrx/store';
 import { Actions, Effect } from '@ngrx/effects';
 import * as fromRoot from './../reducers/reducers';
 import * as fromHeroesAction from './../actions/heroes';
+import * as config from './../../environments/environment';
 
 declare var firebase: any;
 
@@ -12,6 +13,8 @@ export class FirebaseEffects {
 
     @Effect({ dispatch: false }) listen$ = this.actions$.ofType(fromHeroesAction.HEROES_LISTEN)
         .do(() => {
+
+            firebase.initializeApp(config.environment.firebaseConfig);
 
             // Listen for added values
             firebase.database().ref('/').on('child_added', (snapshot) => {

@@ -3,30 +3,30 @@ import { Hero } from './../models/hero';
 import * as fromHeroActions from './../actions/heroes';
 
 export interface State {
-    heroes: Hero[];
-    hero: Hero;
+    models: Hero[];
+    model: Hero;
 }
 
 const initialState: State = {
-    heroes: [],
-    hero: Object.create({})
+    models: [],
+    model: Object.create({})
 };
 
 export function heroes(state = initialState, action: fromHeroActions.All): State {
     switch (action.type) {
-        case fromHeroActions.HERO_ADD:
+        case fromHeroActions.HERO_RECEIVE_ADD:
             const addedHero = Object.assign({}, {
                 id: action.payload.key,
-                name: action.payload.name,
-                description: action.payload.description,
-                topRated: action.payload.topRated
+                name: action.payload.data.name,
+                description: action.payload.data.description,
+                topRated: action.payload.data.topRated
             });
             return {
-                heroes: [...state.heroes, addedHero],
-                hero: state.hero
+                models: [...state.models, addedHero],
+                model: state.model
             };
         case fromHeroActions.HERO_RECEIVE_UPDATE_TO_LIST:
-            const updatedHeroList = state.heroes.map(hero => {
+            const updatedHeroList = state.models.map(hero => {
                 return hero.id !== action.payload.key ? hero : Object.assign({}, hero, {
                     id: action.payload.key,
                     name: action.payload.data.name,
@@ -35,18 +35,18 @@ export function heroes(state = initialState, action: fromHeroActions.All): State
                 });
             });
             return {
-                hero: state.hero,
-                heroes: updatedHeroList
+                model: state.model,
+                models: updatedHeroList
             };
         case fromHeroActions.HERO_RECEIVE_REMOVE:
             return {
-                heroes: state.heroes.filter((hero: Hero) => hero.id !== action.payload.key),
-                hero: state.hero
+                models: state.models.filter((hero: Hero) => hero.id !== action.payload.key),
+                model: state.model
             };
         case fromHeroActions.HEROES_TOP_RATED:
             return {
-                hero: state.hero,
-                heroes: action.payload.filter(hero => hero.topRated)
+                model: state.model,
+                models: action.payload.filter(hero => hero.topRated)
             };
         case fromHeroActions.HERO_RECEIVE_GET:
             const getHero: Hero = Object.assign({}, {
@@ -55,7 +55,7 @@ export function heroes(state = initialState, action: fromHeroActions.All): State
                 description: action.payload.data.description,
                 topRated: action.payload.data.topRated
             });
-            return { heroes: state.heroes, hero: getHero };
+            return { models: state.models, model: getHero };
         case fromHeroActions.HERO_RECEIVE_UPDATE:
             const updatedHero: Hero = Object.assign({}, {
                 id: action.payload.key,
@@ -63,7 +63,7 @@ export function heroes(state = initialState, action: fromHeroActions.All): State
                 description: action.payload.data.description,
                 topRated: action.payload.data.topRated
             });
-            return { heroes: state.heroes, hero: updatedHero };
+            return { models: state.models, model: updatedHero };
         //case HEROES_FILTER_FRIENDS:
         //const friendsList = action.payload.list.sort();
         //const userList = action.payload.userList.sort();
