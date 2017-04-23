@@ -1,20 +1,51 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
+import { FirebaseEffects } from './effects/firebase-effects';
+import { APPRROUTES } from './app.routing';
+import { PreloadSelectedModules } from './app.preload-strategy';
 
+import { reducers } from './reducers/reducers';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
+export function useDock() {
+  return {
+    monitor: useLogMonitor({
+      visible: true,
+      position: 'right'
+    })
+  };
+}
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules }),
+    MaterialModule.forRoot(),
+    BrowserAnimationsModule,
+    StoreModule.provideStore(reducers()),
+    StoreDevtoolsModule.instrumentStore(useDock),
+    StoreLogMonitorModule,
+    EffectsModule.run(FirebaseEffects)
   ],
-  providers: [],
+  providers: [
+    PreloadSelectedModules
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
