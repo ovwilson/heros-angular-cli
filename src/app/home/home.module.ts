@@ -6,6 +6,9 @@ import { HomeComponent } from './home.component';
 import { APPRROUTES } from './home.routing';
 import { MdInputModule, MdCheckboxModule } from '@angular/material';
 
+import { ModelChanges } from './../services/model.change.service';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +22,9 @@ import { MdInputModule, MdCheckboxModule } from '@angular/material';
   ],
   exports: [
     RouterModule
+  ],
+  providers:[
+    ModelChanges
   ]
 })
 export class HomeModule { }

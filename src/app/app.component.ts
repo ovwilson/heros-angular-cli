@@ -22,7 +22,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.store.dispatch(new fromHeroActions.HeroesListen());
+   // this.store.dispatch(new fromHeroActions.HeroesListen());
   }
 
 }

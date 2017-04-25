@@ -8,7 +8,7 @@
     <md-error>You must enter a name for the hero.</md-error>
   </md-input-container>
 
-  <md-input-container class="example-full-width" >
+  <md-input-container class="example-full-width">
     <textarea id="description" name="description" rows="6" [(ngModel)]="model.description" #description="ngModel" mdInput placeholder="Description"
       required></textarea>
     <md-error>You must enter a description for the hero.</md-error>
@@ -18,3 +18,8 @@
 
 
 </form>
+<div *ngIf="modelChanges$ | async as m">
+  <p>Name: {{m?.name}}</p>
+  <p>Description: {{m?.description}}</p>
+  <p>Top Rated: {{m?.topRated}}</p>
+</div>
