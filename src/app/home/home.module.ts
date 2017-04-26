@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
 import { APPRROUTES } from './home.routing';
-import { MdInputModule, MdCheckboxModule } from '@angular/material';
+import { MdInputModule, MdCheckboxModule, MdSelectModule, MdRadioModule } from '@angular/material';
 
 import { ModelChanges } from './../services/model.change.service';
+import { HomeDatepickerComponent } from './home-datepicker/home-datepicker.component';
 
 
 @NgModule({
@@ -15,10 +16,13 @@ import { ModelChanges } from './../services/model.change.service';
     FormsModule,
     RouterModule.forChild(APPRROUTES),
     MdInputModule,
-    MdCheckboxModule
+    MdCheckboxModule,
+    MdSelectModule,
+    MdRadioModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    HomeDatepickerComponent
   ],
   exports: [
     RouterModule
