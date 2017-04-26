@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+
 declare var $: any;
 
 @Component({
@@ -11,6 +12,7 @@ export class HomeDatepickerComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
   ngAfterViewInit() {

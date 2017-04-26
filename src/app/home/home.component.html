@@ -15,15 +15,16 @@
   </md-input-container>
 
   <md-checkbox id="topRated" name="topRated" #topRated="ngModel" [(ngModel)]="model.topRated">Top Rated</md-checkbox>
-  <br>
-  <div fxFlex>
-    <md-select placeholder="Select Favorite Hero" [(ngModel)]="selectedHero" id="selectHero" name="selectHero">
-      <md-option *ngFor="let hero of heroes$ | async" [value]="hero.name">
-        {{hero.name}}
-      </md-option>
-    </md-select>
 
-    <p> Selected value: {{selectedHero}} </p>
+  <div class="container">
+    <div class="row">
+      <md-select placeholder="Select Favorite Hero" [(ngModel)]="selectedHero" id="selectHero" name="selectHero">
+        <md-option *ngFor="let hero of heroes$ | async" [value]="hero.name">
+          {{hero.name}}
+        </md-option>
+      </md-select>
+      <p> Selected value: {{selectedHero}} </p>
+    </div>
   </div>
 
   <md-radio-group class="example-radio-group" [(ngModel)]="favoriteHero" id="favoriteHero" name="favoriteHero">
@@ -33,7 +34,7 @@
   </md-radio-group>
   <div class="example-selected-value">Your favorite Hero is: {{favoriteHero}}</div>
 
-<home-datepicker></home-datepicker>
+  <home-datepicker></home-datepicker>
 
 </form>
 <div *ngIf="modelChanges$ | async as m">

@@ -1,3 +1,14 @@
 md-sidenav {
   width: 320px;
 }
+
+.hero-background{
+    /*background-color: #1976D2; */
+    background: -webkit-linear-gradient(305deg,#0D47A1,#42A5F5) !important;
+    background: linear-gradient(145deg,#0D47A1,#42A5F5) !important;
+    color: #fff !important;
+
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+    position: relative !important;
+}
