@@ -7,8 +7,6 @@ import { APPRROUTES } from './home.routing';
 import { MdInputModule, MdCheckboxModule, MdSelectModule, MdRadioModule } from '@angular/material';
 
 import { ModelChanges } from './../services/model.change.service';
-import { HomeDatepickerComponent } from './home-datepicker/home-datepicker.component';
-
 
 @NgModule({
   imports: [
@@ -21,13 +19,12 @@ import { HomeDatepickerComponent } from './home-datepicker/home-datepicker.compo
     MdRadioModule
   ],
   declarations: [
-    HomeComponent,
-    HomeDatepickerComponent
+    HomeComponent
   ],
   exports: [
     RouterModule
   ],
-  providers:[
+  providers: [
     ModelChanges
   ]
 })

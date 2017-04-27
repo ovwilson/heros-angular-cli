@@ -20,6 +20,8 @@ import { reducers } from './reducers/reducers';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
+import { DatePickerComponent } from './datepicker/datepicker.component';
+import { Md2DatepickerModule } from 'md2-datepicker';
 export function useDock() {
   return {
     monitor: useLogMonitor({
@@ -32,7 +34,8 @@ export function useDock() {
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ export function useDock() {
     HttpModule,
     RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules }),
     MaterialModule.forRoot(),
+    Md2DatepickerModule.forRoot(),
     FlexLayoutModule,
     BrowserAnimationsModule,
     StoreModule.provideStore(reducers()),
