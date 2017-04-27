@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
 import { APPRROUTES } from './home.routing';
-import { MdInputModule, MdCheckboxModule, MdSelectModule, MdRadioModule } from '@angular/material';
+import { MdInputModule, MdCheckboxModule, MdSelectModule, MdRadioModule, MdCardModule } from '@angular/material';
 
 import { ModelChanges } from './../services/model.change.service';
 
@@ -16,7 +16,8 @@ import { ModelChanges } from './../services/model.change.service';
     MdInputModule,
     MdCheckboxModule,
     MdSelectModule,
-    MdRadioModule
+    MdRadioModule,
+    MdCardModule
   ],
   declarations: [
     HomeComponent

@@ -1,5 +1,6 @@
 .example-full-width{
     width:100%;
+    margin-top:20px;
 }
 
 .example-radio-group {
@@ -15,7 +16,9 @@
   margin: 15px 0;
 }
 
-
+.card-spacing{
+  margin:50px;
+}
 /*
 .container {
   display: flex; 
