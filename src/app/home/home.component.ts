@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Hero } from './../models/hero';
 import * as fromRoot from './../reducers/reducers';
@@ -7,11 +7,12 @@ import { ModelChanges } from './../services/model.change.service';
 
 @Component({
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit, DoCheck {
 
-  model: Hero = new Hero('', '', '', '', true);
+  model: Hero = new Hero('', '', 'Batman', 'Batman is gangsta!!', true);
   modelChanges$: Observable<Hero> = Observable.of<Hero>();
   heroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
   favHeroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);

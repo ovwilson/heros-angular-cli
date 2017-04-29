@@ -1,13 +1,14 @@
 <div fxLayout="column" fxFlex>
 
     <md-toolbar color="primary" class="hero-background">
-        <span>Angular Material</span>
+        <span>Angular Material 2 Example</span>
     </md-toolbar>
-    
 
     <md-sidenav-container fxFlex>
 
-        <md-sidenav mode="side" opened="true">
+        <md-progress-bar *ngIf="showBuffer" color="accent" mode="indeterminate"></md-progress-bar>
+
+        <md-sidenav mode="over" align="end" #sidenav>
 
             <md-tab-group>
                 <md-tab label="Heroes">
@@ -27,14 +28,20 @@
             </md-tab-group>
         </md-sidenav>
 
-        <div class="content" fxFlex="90" fxLayoutAlign="center center">
+        <div class="content" fxLayout="row" fxLayoutAlign="space-around center">
+
+            <div>
+                <button (click)="sidenav.toggle()">Open SideNav</button>
+            </div>
+
             <router-outlet></router-outlet>
             <datepicker></datepicker>
+
+
         </div>
-        
+
 
     </md-sidenav-container>
 
 </div>
-
 <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>

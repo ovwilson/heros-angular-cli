@@ -1,5 +1,9 @@
+md-sidenav-container {
+    height: 100% !important;
+}
+
 md-sidenav {
-  width: 320px;
+  
 }
 
 .hero-background{

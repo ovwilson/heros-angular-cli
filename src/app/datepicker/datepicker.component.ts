@@ -9,8 +9,6 @@ declare var $: any;
 })
 export class DatePickerComponent implements OnInit, AfterViewInit {
 
-  datetime : string ="";
-
   constructor() { }
 
 
@@ -19,17 +17,10 @@ export class DatePickerComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-  //  setTimeout(() => {
-   //   $('.picker').pickadate({
-   //     selectMonths: true, // Creates a dropdown to control month
-   //     selectYears: 15 // Creates a dropdown of 15 years to control year
-   //   });
-   // }, 9000);
-
   }
 
-  change(){
-    
+  change() {
+
   }
 
 }
