@@ -14,7 +14,10 @@ export function reducers() {
     };
 };
 
-
-export function topRatedHeros(state: State) {
+export function selectTopRatedHeros(state: State) {
     return state.heroes.models.filter(hero => hero.topRated);
+}
+
+export function selectHeroCount(state: State) {
+    return state.heroes.models.length;
 }

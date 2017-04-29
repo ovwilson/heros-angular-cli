@@ -6,7 +6,7 @@
 
     <md-sidenav-container fxFlex>
 
-        <md-progress-bar *ngIf="showBuffer" color="accent" mode="indeterminate"></md-progress-bar>
+        <md-progress-bar *ngIf="loader$ | async" color="accent" mode="indeterminate"></md-progress-bar>
 
         <md-sidenav mode="over" align="end" #sidenav>
 

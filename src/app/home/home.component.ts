@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, DoCheck {
 
   constructor(private service: ModelChanges, private store: Store<fromRoot.State>) {
     this.heroes$ = this.store.select(state => state.heroes.models);
-    this.favHeroes$ = this.store.select(fromRoot.topRatedHeros);
+    this.favHeroes$ = this.store.select(fromRoot.selectTopRatedHeros);
   }
 
   ngOnInit() {
