@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ContentChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import * as fromRoot from './reducers/reducers';
@@ -13,6 +13,8 @@ import { Hero } from './models/hero';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
+
+  sideNavOpen = false;
 
   loader$: Observable<boolean> = Observable.of<boolean>(false);
   models$: Observable<Hero[]> = Observable.of<Hero[]>([]);
@@ -43,6 +45,10 @@ export class AppComponent {
       .filter(count => count > 0)
       .subscribe(() => this.hideLoader())
       .unsubscribe();
+  }
+
+  onSideNavToggle() {
+    this.sideNavOpen = !this.sideNavOpen;
   }
 
 }

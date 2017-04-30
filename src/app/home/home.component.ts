@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, DoCheck, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Hero } from './../models/hero';
 import * as fromRoot from './../reducers/reducers';
@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.service.change(this.model);
+  }
+
+  openSideNav(){
+    
   }
 
 }

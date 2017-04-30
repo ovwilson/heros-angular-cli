@@ -8,7 +8,7 @@
 
         <md-progress-bar *ngIf="loader$ | async" color="accent" mode="indeterminate"></md-progress-bar>
 
-        <md-sidenav mode="over" align="end" #sidenav>
+        <md-sidenav #sidenav mode="over" align="end" [opened]="sideNavOpen">
 
             <md-tab-group>
                 <md-tab label="Heroes">
@@ -28,16 +28,10 @@
             </md-tab-group>
         </md-sidenav>
 
-        <div class="content" fxLayout="row" fxLayoutAlign="space-around center">
+        <div class="content" fxLayout="column" fxLayoutAlign="space-around center">
 
-            <div>
-                <button (click)="sidenav.toggle()">Open SideNav</button>
-            </div>
-
+            <button (click)="onSideNavToggle()">Toggle SideNav</button>
             <router-outlet></router-outlet>
-            <datepicker></datepicker>
-
-
         </div>
 
 

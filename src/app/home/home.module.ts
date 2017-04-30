@@ -8,6 +8,9 @@ import { MdInputModule, MdCheckboxModule, MdSelectModule, MdRadioModule, MdCardM
 
 import { ModelChanges } from './../services/model.change.service';
 
+import { DatePickerComponent } from './../datepicker/datepicker.component';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +23,8 @@ import { ModelChanges } from './../services/model.change.service';
     MdCardModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    DatePickerComponent
   ],
   exports: [
     RouterModule

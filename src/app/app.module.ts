@@ -20,7 +20,6 @@ import { reducers } from './reducers/reducers';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
-import { DatePickerComponent } from './datepicker/datepicker.component';
 export function useDock() {
   return {
     monitor: useLogMonitor({
@@ -33,8 +32,7 @@ export function useDock() {
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    DatePickerComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
