@@ -1,0 +1,16 @@
+<md-tab-group>
+  <md-tab label="Heroes">
+    <md-nav-list>
+      <md-list-item *ngFor="let model of models$ | async">
+        <span>{{model.name}}</span>
+      </md-list-item>
+    </md-nav-list>
+  </md-tab>
+  <md-tab label="Top Rated">
+    <md-nav-list>
+      <md-list-item *ngFor="let model of trModels$ | async">
+        <span>{{model.name}}</span>
+      </md-list-item>
+    </md-nav-list>
+  </md-tab>
+</md-tab-group>

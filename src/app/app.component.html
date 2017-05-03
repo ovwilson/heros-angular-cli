@@ -8,33 +8,13 @@
 
         <md-progress-bar *ngIf="loader$ | async" color="accent" mode="indeterminate"></md-progress-bar>
 
-        <md-sidenav #sidenav mode="over" align="end" [opened]="sideNavOpen">
+        <md-sidenav mode="over" align="end" [opened]="sideNavOpen">
 
-            <md-tab-group>
-                <md-tab label="Heroes">
-                    <md-nav-list>
-                        <md-list-item *ngFor="let model of models$ | async">
-                            <span>{{model.name}}</span>
-                        </md-list-item>
-                    </md-nav-list>
-                </md-tab>
-                <md-tab label="Top Rated">
-                    <md-nav-list>
-                        <md-list-item *ngFor="let model of trModels$ | async">
-                            <span>{{model.name}}</span>
-                        </md-list-item>
-                    </md-nav-list>
-                </md-tab>
-            </md-tab-group>
         </md-sidenav>
 
-        <div class="content" fxLayout="column" fxLayoutAlign="space-around center">
-
-            <button (click)="onSideNavToggle()">Toggle SideNav</button>
+        <div class="content" fxLayout="row" fxFill >
             <router-outlet></router-outlet>
         </div>
-
-
     </md-sidenav-container>
 
 </div>

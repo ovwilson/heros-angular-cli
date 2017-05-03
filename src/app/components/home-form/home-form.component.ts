@@ -1,18 +1,19 @@
-import { Component, OnInit, DoCheck, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, DoCheck, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Hero } from './../models/hero';
-import * as fromRoot from './../reducers/reducers';
+import { Hero } from './../../models/hero';
+import * as fromRoot from './../../reducers/reducers';
 import { Observable } from 'rxjs/Observable';
-import { ModelChanges } from './../services/model.change.service';
+import { ModelChanges } from './../../services/model.change.service';
 
 @Component({
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'home-form',
+  templateUrl: './home-form.component.html',
+  styleUrls: ['./home-form.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit, DoCheck {
+export class HomeFormComponent implements OnInit {
 
-  model: Hero = new Hero('', '', 'Batman', 'Batman is gangsta!!', true);
+  @Input() model: Hero;
   modelChanges$: Observable<Hero> = Observable.of<Hero>();
   heroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
   favHeroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
@@ -34,8 +35,5 @@ export class HomeComponent implements OnInit, DoCheck {
     this.service.change(this.model);
   }
 
-  openSideNav(){
-    
-  }
 
 }

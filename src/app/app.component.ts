@@ -14,7 +14,8 @@ import { Hero } from './models/hero';
 })
 export class AppComponent {
 
-  sideNavOpen = false;
+   sideNavOpen = false;
+
 
   loader$: Observable<boolean> = Observable.of<boolean>(false);
   models$: Observable<Hero[]> = Observable.of<Hero[]>([]);
