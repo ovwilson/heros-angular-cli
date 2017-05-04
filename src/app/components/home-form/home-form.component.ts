@@ -12,14 +12,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   selector: 'home-form',
   templateUrl: './home-form.component.html',
   styleUrls: ['./home-form.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeFormComponent implements OnInit {
 
   heroForm: FormGroup;
 
-  model: Hero = new Hero();
+  @Input() model: Hero;
+
   modelChanges$: Observable<Hero> = Observable.of<Hero>();
   heroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
   favHeroes$: Observable<Hero[]> = Observable.of<Hero[]>([]);
@@ -41,7 +41,7 @@ export class HomeFormComponent implements OnInit {
   buildForm(): void {
     this.heroForm = this.fb.group({
       'name': [this.model.name, [Validators.required]],
-      'description': [this.model.description]
+      'description': this.model.description
     });
 
     this.heroForm.valueChanges

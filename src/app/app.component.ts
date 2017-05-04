@@ -23,7 +23,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.init();
+  //  this.init();
     this.isLoaded();
   }
 

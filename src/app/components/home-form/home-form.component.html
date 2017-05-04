@@ -32,6 +32,9 @@
 
 </form>
 
+<p>Form Value {{heroForm.value | json}} </p>
+<p>Form Status {{heroForm.status | json}} </p>
+
 <div *ngIf="modelChanges$ | async as m">
   <p>Name: {{m?.name}}</p>
   <p>Description: {{m?.description}}</p>
