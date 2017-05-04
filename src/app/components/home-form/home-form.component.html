@@ -1,22 +1,20 @@
-<form #heroForm="ngForm">
-  
+<form [formGroup]="heroForm">
 
   <md-input-container class="example-full-width">
-    <input id="name" name="name" [(ngModel)]="model.name" #name="ngModel" mdInput placeholder="Name" required>
+    <input mdInput placeholder="Name" id="name" name="name" formControlName="name" required>
     <md-error>You must enter a name for the hero.</md-error>
   </md-input-container>
 
   <md-input-container class="example-full-width">
-    <textarea id="description" name="description" rows="6" [(ngModel)]="model.description" #description="ngModel" mdInput placeholder="Description"
-      required></textarea>
+    <textarea mdInput placeholder="Description" id="description" name="description" rows="6" formControlName="description" ></textarea>
     <md-error>You must enter a description for the hero.</md-error>
   </md-input-container>
 
-  <md-checkbox id="topRated" name="topRated" #topRated="ngModel" [(ngModel)]="model.topRated">Top Rated</md-checkbox>
+  <md-checkbox id="topRated" name="topRated">Top Rated</md-checkbox>
 
   <div class="form-spacing">
     <p> Selected value: {{selectedHero}} </p>
-    <md-select placeholder="Select Favorite Hero" [(ngModel)]="selectedHero" id="selectHero" name="selectHero">
+    <md-select placeholder="Select Favorite Hero" id="selectHero" name="selectHero">
       <md-option *ngFor="let hero of heroes$ | async" [value]="hero.name">
         {{hero.name}}
       </md-option>
@@ -24,7 +22,7 @@
   </div>
 
   <div class="form-spacing">
-    <md-radio-group class="example-radio-group" [(ngModel)]="favoriteHero" id="favoriteHero" name="favoriteHero">
+    <md-radio-group class="example-radio-group" id="favoriteHero" name="favoriteHero">
       <md-radio-button class="example-radio-button" *ngFor="let hero of favHeroes$ | async" [value]="hero.name">
         {{hero.name}}
       </md-radio-button>

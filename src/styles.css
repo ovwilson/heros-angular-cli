@@ -1,9 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
-
-html, body {
-  display:flex;
-  flex-direction: column;
-  margin: 0;
-  height: 100%;
-}

@@ -2,6 +2,7 @@ import { Action } from '@ngrx/store';
 import { Hero } from './../models/hero';
 
 // Hero
+export const HERO_MODEL_CHANGE = '[Hero] Model Change';
 export const HERO_ADD = '[Hero] Add';
 export const HERO_UPDATE = '[Hero] Update';
 export const HERO_GET = '[Hero] Get';
@@ -28,6 +29,12 @@ export class HeroAdd implements Action {
     readonly type = HERO_ADD;
     constructor(public payload: Hero) { }
 }
+
+export class HeroModelChange implements Action {
+    readonly type = HERO_MODEL_CHANGE;
+    constructor(public payload: Hero) { }
+}
+
 
 export class HeroUpdate implements Action {
     readonly type = HERO_UPDATE;
@@ -72,6 +79,7 @@ export class HeroesTopRated implements Action {
 export type All
     = HeroesListen
     | HeroAdd
+    | HeroModelChange
     | HeroUpdate
     | HeroRemove
     | HeroReceiveUpdateToList

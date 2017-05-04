@@ -1,36 +1,19 @@
-.example-full-width{
-    width:100%;
-    margin-top:20px;
+:host-context body  {
+  margin:0px;
 }
 
-.example-radio-group {
-  display: inline-flex;
+.home-layout {
+  display: flex; 
   flex-direction: row;
-}
-
-.example-radio-button {
-  margin: 5px;
-}
-
-.example-selected-value {
-  margin: 15px 0;
-}
+  justify-content: space-between center;
+} 
 
 md-card {
-  margin:10px;
+box-sizing: border-box;
+margin:5px;
+flex:1;
+flex-basis: 10%;
 }
-md-checkbox {
-    color: red;
-}
-
-md-select {
-  margin-top:5px !important;
-}
-
-.container {
-  display: flex; 
-  flex-direction: column;
-} 
 
 .overlay{
   width: 100%;

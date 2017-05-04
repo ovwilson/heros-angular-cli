@@ -16,16 +16,10 @@ export class AppComponent {
 
    sideNavOpen = false;
 
-
   loader$: Observable<boolean> = Observable.of<boolean>(false);
-  models$: Observable<Hero[]> = Observable.of<Hero[]>([]);
-  modelsCount$: Observable<number> = Observable.of<number>(0);
-  trModels$: Observable<Hero[]> = Observable.of<Hero[]>([]);
 
   constructor(private store: Store<fromRoot.State>) {
     this.loader$ = this.store.select(state => state.loading);
-    this.models$ = this.store.select(state => state.heroes.models);
-    this.trModels$ = this.store.select(fromRoot.selectTopRatedHeros);
   }
 
   ngOnInit() {
@@ -34,7 +28,7 @@ export class AppComponent {
   }
 
   init() {
-    this.store.dispatch(new fromHeroActions.HeroesListen());
+     this.store.dispatch(new fromHeroActions.HeroesListen());
   }
 
   hideLoader() {

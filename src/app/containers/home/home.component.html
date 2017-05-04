@@ -1,24 +1,25 @@
-<md-card>
-  <md-card-title>
+<div class="home-layout">
+
+  <md-card>
+    <md-card-title>
       <span> Add Hero</span>
-  </md-card-title>
-  <md-card-content>
+    </md-card-title>
+    <md-card-content>
+      <home-form></home-form>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="onSideNavToggle()">Toggle SideNav</button>
+    </md-card-actions>
+  </md-card>
 
-
-
-  </md-card-content>
-  <md-card-actions>
-    <button md-button (click)="onSideNavToggle()">Toggle SideNav</button>
-  </md-card-actions>
-</md-card>
-
-<md-card>
-  <md-card-title>
+  <md-card>
+    <md-card-title>
       <span> Audit</span>
-  </md-card-title>
-  <md-card-content>
+    </md-card-title>
+    <md-card-content>
+        {{modelChanges$ | async | json}}
 
+    </md-card-content>
 
-  </md-card-content>
-  
-</md-card>
+  </md-card>
+</div>

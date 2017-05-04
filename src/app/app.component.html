@@ -1,21 +1,8 @@
-<div fxLayout="column" fxFlex>
+<md-toolbar color="primary" class="hero-background">
+    <span>Angular Material 2 Example</span>
+</md-toolbar>
+<md-progress-bar *ngIf="loader$ | async" color="accent" mode="indeterminate"></md-progress-bar>
 
-    <md-toolbar color="primary" class="hero-background">
-        <span>Angular Material 2 Example</span>
-    </md-toolbar>
+<router-outlet></router-outlet> 
 
-    <md-sidenav-container fxFlex>
-
-        <md-progress-bar *ngIf="loader$ | async" color="accent" mode="indeterminate"></md-progress-bar>
-
-        <md-sidenav mode="over" align="end" [opened]="sideNavOpen">
-
-        </md-sidenav>
-
-        <div class="content" fxLayout="row" fxFill >
-            <router-outlet></router-outlet>
-        </div>
-    </md-sidenav-container>
-
-</div>
 <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>

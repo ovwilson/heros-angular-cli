@@ -36,11 +36,9 @@ export function useDock() {
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
     RouterModule.forRoot(APPRROUTES, { preloadingStrategy: PreloadSelectedModules }),
     MaterialModule.forRoot(),
-    FlexLayoutModule,
     BrowserAnimationsModule,
     StoreModule.provideStore(reducers()),
     StoreDevtoolsModule.instrumentStore(useDock),
