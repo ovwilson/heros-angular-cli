@@ -14,7 +14,7 @@ import { Hero } from './models/hero';
 })
 export class AppComponent {
 
-   sideNavOpen = false;
+  sideNavOpen = false;
 
   loader$: Observable<boolean> = Observable.of<boolean>(false);
 
@@ -23,12 +23,12 @@ export class AppComponent {
   }
 
   ngOnInit() {
-  //  this.init();
+    this.init();
     this.isLoaded();
   }
 
   init() {
-     this.store.dispatch(new fromHeroActions.HeroesListen());
+    this.store.dispatch(new fromHeroActions.HeroesListen());
   }
 
   hideLoader() {

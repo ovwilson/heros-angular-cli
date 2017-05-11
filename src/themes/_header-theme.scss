@@ -1,0 +1,29 @@
+@import "~@angular/material/_theming.scss";
+
+@include mat-core();
+
+$header-primary : mat-palette($mat-indigo);
+$header-accent: mat-palette($mat-pink, A200, A100, A400);
+$header-theme: mat-light-theme($header-primary,$header-accent);
+
+//@include angular-material-theme($header-theme);
+
+@mixin custom-toolbar-theme($theme){
+   
+    $primary: map-get($theme,primary);
+    $accent: map-get($theme,accent);
+
+    .custom-toolbar {
+        background: -webkit-linear-gradient(215deg, mat-color($accent), mat-color($primary)) !important;
+        background: -moz-linear-gradient(215deg, mat-color($accent), mat-color($primary)) !important;
+        background: -o-linear-gradient(215deg, mat-color($accent), mat-color($primary)) !important;
+        background: linear-gradient(305deg, mat-color($accent), mat-color($primary)) !important;
+    }
+}
+// Define a prebuilt deep-purple theme.
+$primary: mat-palette($mat-deep-purple);
+$accent:  mat-palette($mat-blue-grey, A200);
+$theme: mat-light-theme($primary, $accent);
+
+
+@include custom-toolbar-theme($theme);

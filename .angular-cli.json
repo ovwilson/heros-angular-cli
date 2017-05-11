@@ -19,7 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "themes/_main.scss",
+        "themes/_header-theme.scss"        
       ],
       "scripts": [
         "../node_modules/firebase/firebase.js",

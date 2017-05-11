@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home-navlist',
+  selector: 'home-navlist',
   templateUrl: './home-navlist.component.html',
   styleUrls: ['./home-navlist.component.css']
 })
