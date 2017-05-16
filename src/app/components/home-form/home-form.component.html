@@ -26,6 +26,24 @@
   </md-radio-group>
 
 </form>
+
+<table class="highlight">
+  <thead>
+    <tr>
+      <th><a sort>Name <md-icon></md-icon></a></th>
+      <th><a sort>Description <md-icon></md-icon></a></th>
+      <th><a sort>Top-Rated <md-icon></md-icon></a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hero of heroes$ | async">
+      <td>{{hero.name}}</td>
+      <td>{{hero.description}}</td>
+      <td>{{hero.topRated}}</td>
+    </tr>
+  </tbody>
+</table>
+
 <p> Selected value: {{selectedHero}} </p>
 <div class="example-selected-value">Your favorite Hero is: {{favoriteHero}}</div>
 
